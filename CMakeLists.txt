@@ -29,5 +29,5 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(CompilerWarnings)
 
 # Add subdirectories
-add_subdirectory(src)
-add_subdirectory(examples)
+#add_subdirectory(src)
+#add_subdirectory(examples)
