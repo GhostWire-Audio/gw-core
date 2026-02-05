@@ -1,57 +1,48 @@
-# GW-Core  
-*The engine room of GhostWire Audio*
+# gw-core
 
-GW-Core is a real-time, cross-platform C++ audio engine and DSP framework focused on building sound software that is fast, safe, and understandable.
+Real-time audio DSP engine for GhostWire Audio.
 
-This project exists to explore how audio systems actually work at a low level: buffers, threads, parameter smoothing, DSP graphs, and the rules that keep real-time code from falling apart under pressure.
+## Status: Milestone 1 Complete ✓
 
-It’s designed as a **library first**, not an app. Other tools and plugins in the GhostWire ecosystem build on top of this.
+### Current Features
 
----
+- **AudioBuffer**: Aligned memory buffers for multi-channel audio
+- **BufferView**: Non-owning views into buffers (like `std::span`)
+- **AudioFormat**: Audio stream metadata (sample rate, channels, bit depth)
+- **RingBuffer**: Lock-free SPSC ring buffer for thread communication
+- **Unit Tests**: Comprehensive test coverage
 
-## What This Is
+### Build Instructions
 
-- A headless C++ audio engine
-- A modular DSP node and graph system
-- A real-time safe parameter and messaging model
-- An offline renderer for testing and analysis
-- A foundation for plugins and creative tools
+```bash
+mkdir build && cd build
+cmake ..
+cmake --build .
+```
 
----
+### Run Tests
 
-## Design Goals
+```bash
+./tests/gw-core-tests
+```
 
-- **Real-time safety**  
-  No memory allocation, locks, or blocking calls in the audio thread.
+### Run Example
 
-- **Clarity over cleverness**  
-  The code should be readable by someone learning systems programming, not just impressive to experts.
+```bash
+./examples/hello_ghostwire
+```
 
-- **Testability**  
-  Offline rendering and deterministic processing paths are first-class features.
+## Architecture
 
-- **Cross-platform**  
-  Built to run on Windows, Linux, and macOS.
+This is a library-first design:
 
----
+- `include/gw/core/` - Public API headers
+- `src/` - Private implementation
+- `examples/` - Demonstration programs
+- `tests/` - Unit tests
 
-## Status
+## Next: Milestone 2
 
-This is an active research project. APIs will change. Systems will be refactored. Stability comes after understanding.
-
----
-
-## Structure
-
-- `include/` — Public API
-- `src/` — Engine internals
-- `apps/` — Command-line tools and experiments
-- `tests/` — Unit and regression tests
-
----
-
-## Part of GhostWire Audio
-
-GW-Core is part of the **GhostWire Audio** open-source lab for exploring real-time sound systems and creative DSP.
-
-If you’re curious about how audio software is built under the hood, you’re in the right place.
+- DSP node interface
+- Parameter system with smoothing
+- Basic DSP processors (gain, pan, mix)

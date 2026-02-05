@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.15)
 
 # Project declaration
-project(GhostWireCore
+project(GW_Core
         VERSION 0.1.0
         DESCRIPTION "Real-time audio DSP engine"
         LANGUAGES CXX
@@ -31,3 +31,4 @@ include(CompilerWarnings)
 # Add subdirectories
 add_subdirectory(src)
 add_subdirectory(examples)
+add_subdirectory(tests)

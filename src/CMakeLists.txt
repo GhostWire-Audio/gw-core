@@ -1,8 +1,10 @@
 # Define the library target
 add_library(gw-core
-        buffer.cpp
         version.cpp
-        # More source files will go here as we add them
+        audio_format.cpp
+        audio_buffer.cpp
+        buffer_view.cpp
+        ring_buffer.cpp
 )
 
 # Create an alias for consistency
